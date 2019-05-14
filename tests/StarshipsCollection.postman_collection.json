@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "08309755-0a34-4878-8c05-c2980baa5a06",
+		"name": "StarshipsCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Starships",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ea44ebf5-fe33-42cc-9908-da00a03000e1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"   pm.response.to.have.status(200); ",
+							"}); ",
+							"",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});",
+							"",
+							"",
+							"pm.test(\"More than 5 Starships\", function() {",
+							"    pm.expect(pm.response.json().results).to.have.lengthOf.above(5);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/starships",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"starships"
+					]
+				},
+				"description": "Obtener Naves espaciales"
+			},
+			"response": []
+		},
+		{
+			"name": "Planets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64f17e6d-634c-447f-a034-8e749fc3507f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/planets/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"planets",
+						""
+					]
+				},
+				"description": "Planets"
+			},
+			"response": []
+		}
+	]
+}
