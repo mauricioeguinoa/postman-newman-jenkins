@@ -6,7 +6,7 @@
     "test": "tests"
   },
   "scripts": {
-    "api-tests-TEST": "newman run tests/StarshipsCollection.postman_collection.json"
+    "api-tests-TEST": "newman run tests/StarshipsCollection.postman_collection.json -e StarWars.postman_environment.json"
   },
   "author": "Mauricio Eguinoa",
   "dependencies": {
